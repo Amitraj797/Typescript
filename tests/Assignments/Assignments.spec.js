@@ -1,4 +1,5 @@
 const {test,expect}= require ('@playwright/test');
+const { promises } = require('node:dns');
 
 
 test('Assignment1', async ({browser})=>
@@ -39,24 +40,3 @@ test('Assignment1', async ({browser})=>
 })    
 
 
-test.only('Assignment2', async ({page})=>
-{
- await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
- await page.locator('#username').fill("rahulshettyacademy");
- await page.locator('#password').fill("Learning@830$3mK2");
- await page.locator("[value='user']").click();
- await page.locator("#okayBtn").click();
- await expect(page.locator("[value='user']")).toBeChecked();
- console.log(await page.locator("[value='user']").isChecked());
- const dropdown= page.locator("select.form-control");
- await dropdown.selectOption('consult');
- await expect(dropdown).toHaveValue("consult");
- const checkbox= page.locator("[type='checkbox']");
- await checkbox.click();
- await expect(checkbox).toBeChecked();
- console.log(await checkbox.isChecked());
- await checkbox.uncheck();
- console.log(await checkbox.isChecked());
- await expect(checkbox).not.toBeChecked();
- await page.pause();
-})
