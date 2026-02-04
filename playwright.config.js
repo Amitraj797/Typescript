@@ -14,7 +14,7 @@ import { defineConfig, devices } from '@playwright/test';
   reporter: 'html',
   use:{
     browserName:'chromium',
-    headless: true,
+    headless: false,
   },
 });
 
