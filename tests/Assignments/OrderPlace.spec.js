@@ -2,7 +2,7 @@ const {test, expect}= require ('@playwright/test');
 
 
 
-test.only ("OrderPlace", async ({browser})=>
+test("OrderPlace", async ({browser})=>
 {
     const email="amit1@xyz.com";
     const password="Amit@123";
@@ -68,7 +68,7 @@ test.only ("OrderPlace", async ({browser})=>
     }
 
     await page.locator("a.action__submit").click();
-    const orderMessage=await page.locator("h1.hero-primary").textContent();
+    const orderMessage=await page.locator("h1.hero-primary").textContent(); 
     expect(orderMessage.includes("Thankyou for the order.")).toBeTruthy();
     await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
     const orderId=await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
