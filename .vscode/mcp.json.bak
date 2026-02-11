@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "MCP_DOCKER": {
+      "command": "docker",
+      "args": ["mcp", "gateway", "run"],
+      "type": "stdio"
+    },
+
+    "playwright": {
+      "type": "docker",
+      "image": "ghcr.io/modelcontextprotocol/server-playwright:latest",
+      "command": "node",
+      "args": ["dist/index.js"]
+    }
+  }
+}
